@@ -1,0 +1,116 @@
+# How to deploy a R Shiny Dashboard
+
+
+
+
+# R Shiny Dashboard Sharing Options
+# Script sharing
+# Gist / Github
+# Shinyapp.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Before you Begin
+# Make sure you have a app.r file inside of a folder for your dashboard.
+# Before you begin make sure you have a 4.4.1 version of R on your system. Tools > Global Options > R And select the 4.4.1 version of R for R version. 
+# You will have to restart Rstudio, but after that your R Shiny Dashboards should deploy.
+
+
+
+
+
+
+
+
+
+
+
+
+1. Login / Create a account at Shinyapps.io
+2. Navigate to the Tokens screen
+3. Click Add Token 
+4. Click the Show secret button and copy the code to your clipboard.
+5. Run that code in the R studio console, this establishes the connection between your Rshiny app and Rshiny.apps.io account.
+6. Next navigate to the working directory that has your R shiny script with the cd command. 
+   The name of the dashboard will be inherited by the folder name.
+   
+   setwd("C:/PluralSight/Courses/Build Interactive Dashboards with Shiny in R/Scripts/Deployment")
+
+7. Install the rsconnect library and import the library:
+
+   install.packages("rsconnect")
+   library(rsconnect)
+
+8. Paste in the rsconnect::setAccountInfo copied from the token screen 
+8. Then run the command `rsconnect::deployApp()` this will start the deployment process of your R shiny dashboard.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+install.packages("rsconnect")
+library(rsconnect)
+
+
+
+
+
+
+
+
+
+
+rsconnect::setAccountInfo(name = 'your-username',
+                          token = 'your-token',
+                          secret = 'your-secret')
+						  
+rsconnect::setAccountInfo(name='fogelman-dashboard',
+			  token='079AB05E02AC9D8B266207E99067053E',
+			  secret='N+HBVIfze/N9w/vx8/dt18tNp+b+cLwd0dRmyVYs')
+			  
+rsconnect::deployApp()
+rsconnect::deployApp('path/to/your/app')
+
